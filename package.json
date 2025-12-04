@@ -1,0 +1,30 @@
+{
+  "name": "redis-db",
+  "version": "1.0.0",
+  "description": "Projeto da disciplina de Sistemas de Informação do CIn-UFPE com foco em instalação, configuração e integração do Redis utilizando Node.js e Docker.",
+  "homepage": "https://github.com/brunoramossilva/redis-db#readme",
+  "bugs": {
+    "url": "https://github.com/brunoramossilva/redis-db/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunoramossilva/redis-db.git"
+  },
+  "license": "ISC",
+  "author": "Bruno Ramos",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "ioredis": "^5.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,6 +1,6 @@
-# Carrinho de Compras Virtual Utilizando Redis + Node.js + Docker
+# Carrinho de Compras Virtual Utilizando Redis + Node.js + TypeScript + Docker
 
-O objetivo principal é estudar e demonstrar a **instalação, configuração e utilização do Redis** em conjunto com uma aplicação desenvolvida em **Node.js**, utilizando **Docker** para a execução do banco de dados.
+O objetivo principal é estudar e demonstrar a **instalação, configuração e utilização do Redis** em conjunto com uma aplicação desenvolvida em **Node.js** com **TypeScript**, utilizando **Docker** para a execução do banco de dados.
 
 ---
 
@@ -9,7 +9,7 @@ O objetivo principal é estudar e demonstrar a **instalação, configuração e 
 Este repositório visa:
 
 - Demonstrar como configurar e executar o **Redis via Docker**;
-- Integrar o Redis com uma aplicação escrita em **Node.js**;
+- Integrar o Redis com uma aplicação escrita em **Node.js** utilizando **TypeScript**;
 - Explorar conceitos fundamentais de armazenamento chave-valor;
 - Implementar um pequeno exemplo prático utilizando Redis.
 
@@ -20,7 +20,8 @@ Este repositório visa:
 - **Redis**;
 - **Docker**;
 - **Node.js**;
-- **Biblioteca oficial `redis` para JavaScript**.
+- **TypeScript**;
+- **Biblioteca avançada, alternativa à oficial `ioredis` para TypeScript**.
 
 ---
 
@@ -49,7 +50,7 @@ npm install
 ### 4. Iniciar a aplicação
 
 ```bash
-npm start
+npm run dev
 ```
 
 ---
@@ -59,9 +60,7 @@ npm start
 ```
 redis-db/
  ├── src/
- │    ├── server.js
- │    ├── redisClient.js
- │    └── utils/
+ │    └── server.ts
  │
  ├── docker-compose.yml
  ├── package.json
