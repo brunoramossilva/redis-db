@@ -20,29 +20,29 @@ const rand = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
 const productNames = [
-  "Camiseta Básica",
+  "Camiseta Basica",
   "Camiseta Polo",
   "Sapato Esportivo",
-  "Tênis Casual",
+  "Tenis Casual",
   "Mesa de Madeira",
   "Cadeira Gamer",
   'Monitor 24"',
   'Monitor 27"',
-  "Teclado Mecânico",
+  "Teclado Mecanico",
   "Teclado Sem Fio",
   "Mouse Sem Fio",
   "Mouse Gamer",
   "Fone Bluetooth",
   "Fone Over-Ear",
-  "Cafeteira Elétrica",
+  "Cafeteira Eletrica",
   "Micro-ondas 20L",
   "Air Fryer 4L",
   "Shampoo Anticaspa",
-  "Sabonete Líquido",
+  "Sabonete Liquido",
   "Arroz Tipo 1",
-  "Feijão Carioca",
-  "Macarrão Espaguete",
-  "Açúcar Refinado",
+  "Feijao Carioca",
+  "Macarrao Espaguete",
+  "Acucar Refinado",
   "Cerveja Lata 350ml",
 ];
 
@@ -51,9 +51,7 @@ function randomProductName(): string {
   return productNames[index];
 }
 
-// --------------------------------------------------------------------
 // Criar clientes automaticamente (1 vez)
-// --------------------------------------------------------------------
 async function criarClientesIniciais() {
   for (let id = 1; id <= NUM_CLIENTES; id++) {
     const cliente: Cliente = {
@@ -63,14 +61,12 @@ async function criarClientesIniciais() {
 
     await redis.hset(`fastcard:clientes:${id}`, cliente);
 
-    const msg = `👤 Cliente criado -> ${id} | ${cliente.nome}`;
+    const msg = `Cliente criado - ${id} | ${cliente.nome}`;
     (global as any).registrarDashboardLog?.(msg);
   }
 }
 
-// --------------------------------------------------------------------
 // Criar Produto
-// --------------------------------------------------------------------
 async function criarProduto() {
   const id = rand(1000, 9999);
 
@@ -82,7 +78,7 @@ async function criarProduto() {
 
   await redis.hset(`fastcard:produtos:${id}`, produto);
 
-  const msg = `🆕 Produto criado -> ${id} | ${produto.nome} | R$${produto.preco}`;
+  const msg = `Produto criado - ${id} | ${produto.nome} | R$${produto.preco}`;
   (global as any).registrarDashboardLog?.(msg);
 }
 
@@ -103,13 +99,11 @@ async function adicionarAoCarrinho() {
     quantidade
   );
 
-  const msg = `🛒 Cliente ${clienteId} adicionou ${quantidade}x do produto ${produtoId}`;
+  const msg = `Cliente ${clienteId} adicionou ${quantidade}x do produto ${produtoId}`;
   (global as any).registrarDashboardLog?.(msg);
 }
 
-// --------------------------------------------------------------------
 // Finalizar compra
-// --------------------------------------------------------------------
 async function finalizarCompra() {
   const clienteId = rand(1, NUM_CLIENTES);
   const key = `fastcard:carrinho:cliente:${clienteId}`;
@@ -128,10 +122,11 @@ async function finalizarCompra() {
 
   await redis.del(key);
 
-  const msg = `💰 Cliente ${clienteId} FINALIZOU uma compra!`;
+  const msg = `Cliente ${clienteId} finalizou uma compra`;
   (global as any).registrarDashboardLog?.(msg);
 }
 
+// Loop principal
 async function loop() {
   const acao = rand(1, 10);
 

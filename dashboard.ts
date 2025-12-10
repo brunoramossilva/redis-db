@@ -15,14 +15,14 @@ export function iniciarDashboard() {
   const tabelaRanking = grid.set(0, 0, 6, 6, contrib.table, {
     keys: true,
     fg: "white",
-    label: "📊 Ranking de Vendas",
+    label: "Ranking de Vendas",
     columnWidth: [30, 15],
   });
 
   const logBox = grid.set(0, 6, 12, 6, contrib.log, {
     fg: "green",
     selectedFg: "white",
-    label: "📜 Eventos",
+    label: "Eventos",
   });
 
   // Atualiza tabela do ranking
