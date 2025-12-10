@@ -17,15 +17,21 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "faker": "ts-node fakerSimulator.ts"
   },
   "dependencies": {
+    "@faker-js/faker": "^10.1.0",
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.11.0",
     "express": "^5.2.1",
     "ioredis": "^5.8.2"
   },
   "devDependencies": {
+    "@types/blessed": "^0.1.27",
     "@types/express": "^5.0.6",
     "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3"
   }
